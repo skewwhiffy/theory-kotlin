@@ -1,12 +1,10 @@
 package org.skewwhiffy.theory
 
 import org.junit.jupiter.params.provider.MethodSource
-import org.skewwhiffy.theory.org.skewwhiffy.theory.Interval
-import org.skewwhiffy.theory.org.skewwhiffy.theory.NonPerfectIntervalBuilder
 import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
-import org.skewwhiffy.theory.org.skewwhiffy.theory.IntervalBuilder
-import org.skewwhiffy.theory.org.skewwhiffy.theory.PerfectIntervalBuilder
+import org.skewwhiffy.theory.org.skewwhiffy.theory.*
 
 class IntervalTest {
     companion object {

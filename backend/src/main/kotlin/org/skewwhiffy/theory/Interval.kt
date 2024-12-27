@@ -153,21 +153,5 @@ private class MajorIntervalBuilder : NonPerfectIntervalBuilder {
 private fun combine(
     perfect: PerfectIntervalBuilder,
     nonPerfect: NonPerfectIntervalBuilder,
-): IntervalBuilder = object : IntervalBuilder {
-    override val unison: Interval
-        get() = perfect.unison
-    override val second: Interval
-        get() = nonPerfect.second
-    override val third: Interval
-        get() = nonPerfect.third
-    override val fourth: Interval
-        get() = perfect.fourth
-    override val fifth: Interval
-        get() = perfect.fifth
-    override val sixth: Interval
-        get() = nonPerfect.sixth
-    override val seventh: Interval
-        get() = nonPerfect.seventh
-    override val octave: Interval
-        get() = perfect.octave
-}
+): IntervalBuilder =
+    object : IntervalBuilder, PerfectIntervalBuilder by perfect, NonPerfectIntervalBuilder by nonPerfect {}
