@@ -1,6 +1,6 @@
 package org.skewwhiffy.theory.org.skewwhiffy.theory
 
-class Interval(internal val size: Int, internal val offset: Int) {
+data class Interval(internal val size: Int, internal val offset: Int) {
     constructor(size: Int) : this(size, 0)
 
     companion object : TopLevelIntervalBuilder {
@@ -16,7 +16,12 @@ class Interval(internal val size: Int, internal val offset: Int) {
             get() = combine(perfect, major).withPostProcess { Interval(it.size, it.offset + 1) }
         override val diminished
             get() = combine(perfect, minor).withPostProcess { Interval(it.size, it.offset - 1) }
+        val octave
+            get() = Interval(8)
     }
+
+    val augmented
+        get() = Interval(size, offset + 1)
 }
 
 interface TopLevelIntervalBuilder {
