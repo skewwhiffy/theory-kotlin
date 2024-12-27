@@ -2,19 +2,18 @@ package org.skewwhiffy.theory
 
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.datatest.withData
-import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import org.skewwhiffy.theory.org.skewwhiffy.theory.Interval
 import org.skewwhiffy.theory.org.skewwhiffy.theory.IntervalBuilder
 import org.skewwhiffy.theory.org.skewwhiffy.theory.NonPerfectIntervalBuilder
 import org.skewwhiffy.theory.org.skewwhiffy.theory.PerfectIntervalBuilder
 
-class TestCase<T>(
+private class TestCase<T>(
     val initialize: (builder: T) -> Interval,
     val expectedSize: Int
 )
 
-val nonPerfectTestCases: List<TestCase<NonPerfectIntervalBuilder>>
+private val nonPerfectTestCases: List<TestCase<NonPerfectIntervalBuilder>>
     get() {
         fun test(
             expectedSize: Int,
@@ -29,7 +28,7 @@ val nonPerfectTestCases: List<TestCase<NonPerfectIntervalBuilder>>
     }
 
 
-val perfectTestCases: List<TestCase<PerfectIntervalBuilder>>
+private val perfectTestCases: List<TestCase<PerfectIntervalBuilder>>
     get() {
         fun test(
             expectedSize: Int,
@@ -43,7 +42,7 @@ val perfectTestCases: List<TestCase<PerfectIntervalBuilder>>
         )
     }
 
-val intervalTestCases: List<TestCase<IntervalBuilder>>
+private val intervalTestCases: List<TestCase<IntervalBuilder>>
     get() {
         fun test(
             expectedSize: Int,
