@@ -19,6 +19,7 @@ data class Pitch(private val note: Note, private val octave: Octave) {
         val defaultResult = when (interval.size) {
             2 -> addMajorSecond()
             3 -> this + Interval.major.second + Interval.major.second
+            4 -> this + Interval.major.third + Interval.minor.second
             else -> TODO()
         }
         return when (interval.offset) {
@@ -27,6 +28,9 @@ data class Pitch(private val note: Note, private val octave: Octave) {
             else -> TODO()
         }
     }
+
+    val upOctave
+        get() = Pitch(note, octave.up)
 
     private val flat
         get() = Note(note.noteName, note.accidental.flat).let { Pitch(it, octave) }
