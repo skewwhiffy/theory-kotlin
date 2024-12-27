@@ -1,6 +1,5 @@
 package org.skewwhiffy.theory
 
-import io.kotest.core.spec.style.FunSpec
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.shouldBe
 import org.skewwhiffy.theory.org.skewwhiffy.theory.Interval
