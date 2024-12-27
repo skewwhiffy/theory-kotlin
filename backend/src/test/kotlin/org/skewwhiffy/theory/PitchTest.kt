@@ -1,62 +1,34 @@
 package org.skewwhiffy.theory
 
-import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Test
+import io.kotest.core.spec.style.FunSpec
+import io.kotest.core.spec.style.StringSpec
+import io.kotest.matchers.shouldBe
 import org.skewwhiffy.theory.org.skewwhiffy.theory.Interval
 import org.skewwhiffy.theory.org.skewwhiffy.theory.Note
 
-class PitchTest {
-    @Test
-    fun canAddMajorInterval() {
-        val expected = Note.D.aboveMiddleC
-
-        val actual = Note.middleC + Interval.major.second
-
-        assertThat(actual).isEqualTo(expected)
+class PitchTest : StringSpec({
+    "Can add major interval" {
+        Note.middleC + Interval.major.second shouldBe Note.D.aboveMiddleC
     }
 
-    @Test
-    fun canAddMinorInterval() {
-        val expected = Note.G.aboveMiddleC
-
-        val actual = Note.E.aboveMiddleC + Interval.minor.third
-
-        assertThat(actual).isEqualTo(expected)
+    "Can add minor interval" {
+        Note.E.aboveMiddleC + Interval.minor.third shouldBe Note.G.aboveMiddleC
     }
 
-    @Test
-    fun canAddPerfectInterval() {
-        val expected = Note.B.flat.aboveMiddleC
-
-        val actual = Note.F.aboveMiddleC + Interval.perfect.fourth
-
-        assertThat(actual).isEqualTo(expected)
+    "Can add perfect interval" {
+        Note.F.aboveMiddleC + Interval.perfect.fourth shouldBe Note.B.flat.aboveMiddleC
     }
 
-    @Test
-    fun canAddAugmentedPerfectInterval() {
-        val expected = Note.E.sharp.aboveMiddleC.upOctave
-
-        val actual = Note.A.aboveMiddleC + Interval.augmented.fifth
-
-        assertThat(actual).isEqualTo(expected)
+    "Can add augmented interval" {
+        Note.A.aboveMiddleC + Interval.augmented.fifth shouldBe Note.E.sharp.octavesAboveMiddleC(1)
     }
 
-    @Test
-    fun canAddDiminishedNonPerfectInterval() {
-        val expected = Note.C.flat.octavesAboveMiddleC(1)
-
-        val actual = Note.E.aboveMiddleC + Interval.diminished.sixth
-
-        assertThat(actual).isEqualTo(expected)
+    "Can add diminished non-perfect interval" {
+        Note.E.aboveMiddleC + Interval.diminished.sixth shouldBe Note.C.flat.octavesAboveMiddleC(1)
     }
 
-    @Test
-    fun canAddCompoundInterval() {
-        val expected = Note.G.sharp.sharp.octavesAboveMiddleC(2)
-
-        val actual = Note.A.flat.aboveMiddleC + Interval.compound.augmented.seventh.augmented
-
-        assertThat(actual).isEqualTo(expected)
+    "Can add compound interval" {
+        Note.A.flat.aboveMiddleC + Interval.compound.augmented.seventh.augmented shouldBe
+                Note.G.sharp.sharp.octavesAboveMiddleC(2)
     }
-}
+})
