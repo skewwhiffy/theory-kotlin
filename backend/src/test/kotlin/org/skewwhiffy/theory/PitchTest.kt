@@ -23,4 +23,13 @@ class PitchTest {
 
         assertThat(actual).isEqualTo(expected)
     }
+
+    @Test
+    fun canAddPerfectInterval() {
+        val expected = Note.B.flat.aboveMiddleC
+
+        val actual = Note.F.aboveMiddleC + Interval.perfect.fourth
+
+        assertThat(actual).isEqualTo(expected)
+    }
 }
