@@ -117,6 +117,16 @@ class IntervalTest {
         assertThat(interval.size).isEqualTo(testCase.expectedSize + 7)
         assertThat(interval.offset).isEqualTo(1)
     }
+
+    @Test
+    fun equalityWorks() {
+        val getInterval = { Interval.compound.minor.third }
+
+        val first = getInterval()
+        val second = getInterval()
+
+        assertThat(first).isEqualTo(second)
+    }
 }
 
 class CanInitializeNonPerfectIntervalTestCase(
