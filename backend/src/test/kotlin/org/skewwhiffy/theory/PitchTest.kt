@@ -14,4 +14,13 @@ class PitchTest {
 
         assertThat(actual).isEqualTo(expected)
     }
+
+    @Test
+    fun canAddMinorInterval() {
+        val expected = Note.G.aboveMiddleC
+
+        val actual = Note.E.aboveMiddleC + Interval.minor.third
+
+        assertThat(actual).isEqualTo(expected)
+    }
 }
