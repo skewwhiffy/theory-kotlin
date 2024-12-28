@@ -1,0 +1,11 @@
+{
+  "name": "theory-kotlin",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "./build.sh"
+  },
+  "repository": "git@github.com:skewwhiffy/theory-kotlin.git",
+  "author": "Kenny Hung (he) <kennysubs+github@outlook.com>",
+  "license": "MIT"
+}
