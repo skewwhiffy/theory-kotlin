@@ -6,6 +6,7 @@
     "build": "concurrently 'yarn build:backend' 'yarn build:frontend'",
     "build:backend": "./build.backend.sh",
     "build:frontend": "./build.frontend.sh",
+    "clean": "rm -rf ./node_modules && rm -rf ./web/node_modules && cd backend && mvn clean",
     "start:frontend": "cd web && yarn start",
     "test:backend": "cd backend && mvn clean test"
   },
