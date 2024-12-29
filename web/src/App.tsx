@@ -1,10 +1,10 @@
 import React from 'react';
+import {BrowserRouter} from "react-router";
+import {Routing} from './scaffold/Routing';
 
 const App = () =>
-  <div className="App">
-    <header className="App-header">
-      <p>Theory tester</p>
-    </header>
-  </div>
+  <BrowserRouter>
+    <Routing/>
+  </BrowserRouter>
 
 export default App;
