@@ -1,4 +1,4 @@
-package org.skewwhiffy.theory.org.skewwhiffy.theory
+package org.skewwhiffy.theory.org.skewwhiffy.theory.model
 
 data class Pitch(private val note: Note, private val octave: Octave) {
     private fun addMajorSecond(): Pitch {
