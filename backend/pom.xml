@@ -19,6 +19,7 @@
         <kotlin.version>2.0.21</kotlin.version>
         <assertj.version>3.27.0</assertj.version>
         <spring.boot.version>3.4.1</spring.boot.version>
+        <jackson.version>2.18.2</jackson.version>
     </properties>
 
     <repositories>
@@ -95,6 +96,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <version>${spring.boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.module</groupId>
+            <artifactId>jackson-module-kotlin</artifactId>
+            <version>${jackson.version}</version>
         </dependency>
         <!-- Test dependencies -->
         <dependency>
