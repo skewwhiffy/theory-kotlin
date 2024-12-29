@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "concurrently 'yarn build:backend' 'yarn build:frontend'",
+    "build": "yarn build:frontend && yarn build:backend",
     "build:backend": "./build.backend.sh",
     "build:frontend": "./build.frontend.sh",
     "clean": "rm -rf ./node_modules && rm -rf ./web/node_modules && cd backend && mvn clean",
@@ -13,8 +13,5 @@
   },
   "repository": "git@github.com:skewwhiffy/theory-kotlin.git",
   "author": "Kenny Hung (he) <kennysubs+github@outlook.com>",
-  "license": "MIT",
-  "devDependencies": {
-    "concurrently": "^9.1.1"
-  }
+  "license": "MIT"
 }
