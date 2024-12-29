@@ -1,5 +1,12 @@
 package org.skewwhiffy.theory
 
+import org.springframework.boot.SpringApplication
+import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.runApplication
+
 fun main() {
-    println("Hello World!")
+    runApplication<Main>()
 }
+
+@SpringBootApplication
+class Main
