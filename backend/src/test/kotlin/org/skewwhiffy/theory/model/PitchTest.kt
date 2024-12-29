@@ -1,33 +1,39 @@
 package org.skewwhiffy.theory.model
 
-import io.kotest.core.spec.style.StringSpec
-import io.kotest.matchers.shouldBe
+import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.Test
 import org.skewwhiffy.theory.org.skewwhiffy.theory.model.Interval
 import org.skewwhiffy.theory.org.skewwhiffy.theory.model.Note
 
-class PitchTest : StringSpec({
-    "Can add major interval" {
-        Note.middleC + Interval.major.second shouldBe Note.D.aboveMiddleC
+class PitchTest {
+    @Test
+    fun `Can add major interval`() {
+        assertThat(Note.middleC + Interval.major.second).isEqualTo(Note.D.aboveMiddleC)
     }
 
-    "Can add minor interval" {
-        Note.E.aboveMiddleC + Interval.minor.third shouldBe Note.G.aboveMiddleC
+    @Test
+    fun `Can add minor interval`() {
+        assertThat(Note.E.aboveMiddleC + Interval.minor.third).isEqualTo(Note.G.aboveMiddleC)
     }
 
-    "Can add perfect interval" {
-        Note.F.aboveMiddleC + Interval.perfect.fourth shouldBe Note.B.flat.aboveMiddleC
+    @Test
+    fun `Can add perfect interval`() {
+        assertThat(Note.F.aboveMiddleC + Interval.perfect.fourth).isEqualTo(Note.B.flat.aboveMiddleC)
     }
 
-    "Can add augmented interval" {
-        Note.A.aboveMiddleC + Interval.augmented.fifth shouldBe Note.E.sharp.octavesAboveMiddleC(1)
+    @Test
+    fun `Can add augmented interval`() {
+        assertThat(Note.A.aboveMiddleC + Interval.augmented.fifth).isEqualTo(Note.E.sharp.octavesAboveMiddleC(1))
     }
 
-    "Can add diminished non-perfect interval" {
-        Note.E.aboveMiddleC + Interval.diminished.sixth shouldBe Note.C.flat.octavesAboveMiddleC(1)
+    @Test
+    fun `Can add diminished non-perfect interval`() {
+        assertThat(Note.E.aboveMiddleC + Interval.diminished.sixth).isEqualTo(Note.C.flat.octavesAboveMiddleC(1))
     }
 
-    "Can add compound interval" {
-        Note.A.flat.aboveMiddleC + Interval.compound.augmented.seventh.augmented shouldBe
-                Note.G.sharp.sharp.octavesAboveMiddleC(2)
+    @Test
+    fun `Can add compound interval`() {
+        assertThat(Note.A.flat.aboveMiddleC + Interval.compound.augmented.seventh.augmented)
+            .isEqualTo(Note.G.sharp.sharp.octavesAboveMiddleC(2))
     }
-})
+}

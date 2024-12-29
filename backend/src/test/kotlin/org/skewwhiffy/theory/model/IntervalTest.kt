@@ -1,133 +1,140 @@
 package org.skewwhiffy.theory.model
 
-import io.kotest.core.spec.style.FunSpec
-import io.kotest.datatest.withData
-import io.kotest.matchers.shouldBe
 import org.skewwhiffy.theory.org.skewwhiffy.theory.model.Interval
 import org.skewwhiffy.theory.org.skewwhiffy.theory.model.IntervalBuilder
 import org.skewwhiffy.theory.org.skewwhiffy.theory.model.NonPerfectIntervalBuilder
 import org.skewwhiffy.theory.org.skewwhiffy.theory.model.PerfectIntervalBuilder
+import org.assertj.core.api.Assertions.*
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.MethodSource
 
-private class TestCase<T>(
+class TestCase<T>(
     val initialize: (builder: T) -> Interval,
     val expectedSize: Int
-)
+) {
+    override fun toString() = "$expectedSize"
+}
 
-private val nonPerfectTestCases: List<TestCase<NonPerfectIntervalBuilder>>
-    get() {
-        fun test(
-            expectedSize: Int,
-            initialize: (builder: NonPerfectIntervalBuilder) -> Interval
-        ) = TestCase(initialize, expectedSize)
-        return listOf(
-            test(2) { it.second },
-            test(3) { it.third },
-            test(6) { it.sixth },
-            test(7) { it.seventh },
-        )
-    }
+class IntervalTest {
+    companion object {
+        @JvmStatic
+        private fun nonPerfectTestCases(): List<TestCase<NonPerfectIntervalBuilder>> {
+            fun test(
+                expectedSize: Int,
+                initialize: (builder: NonPerfectIntervalBuilder) -> Interval
+            ) = TestCase(initialize, expectedSize)
+            return listOf(
+                test(2) { it.second },
+                test(3) { it.third },
+                test(6) { it.sixth },
+                test(7) { it.seventh },
+            )
+        }
 
+        @JvmStatic
+        private fun perfectTestCases(): List<TestCase<PerfectIntervalBuilder>> {
+            fun test(
+                expectedSize: Int,
+                initialize: (builder: PerfectIntervalBuilder) -> Interval
+            ) = TestCase(initialize, expectedSize)
+            return listOf(
+                test(1) { it.unison },
+                test(4) { it.fourth },
+                test(5) { it.fifth },
+                test(8) { it.octave },
+            )
+        }
 
-private val perfectTestCases: List<TestCase<PerfectIntervalBuilder>>
-    get() {
-        fun test(
-            expectedSize: Int,
-            initialize: (builder: PerfectIntervalBuilder) -> Interval
-        ) = TestCase(initialize, expectedSize)
-        return listOf(
-            test(1) { it.unison },
-            test(4) { it.fourth },
-            test(5) { it.fifth },
-            test(8) { it.octave },
-        )
-    }
-
-private val intervalTestCases: List<TestCase<IntervalBuilder>>
-    get() {
-        fun test(
-            expectedSize: Int,
-            initialize: (builder: IntervalBuilder) -> Interval
-        ) = TestCase(initialize, expectedSize)
-        return listOf(
-            test(1) { it.unison },
-            test(2) { it.second },
-            test(3) { it.third },
-            test(4) { it.fourth },
-            test(5) { it.fifth },
-            test(6) { it.sixth },
-            test(7) { it.seventh },
-            test(8) { it.octave },
-        )
-    }
-
-class IntervalTest : FunSpec({
-    context("Major") {
-        withData(nameFn = { "$it.expectedSize" }, nonPerfectTestCases) {
-            val interval = Interval.major.let(it.initialize)
-
-            interval.size shouldBe it.expectedSize
-            interval.offset shouldBe 0
+        @JvmStatic
+        private fun intervalTestCases(): List<TestCase<IntervalBuilder>> {
+            fun test(
+                expectedSize: Int,
+                initialize: (builder: IntervalBuilder) -> Interval
+            ) = TestCase(initialize, expectedSize)
+            return listOf(
+                test(1) { it.unison },
+                test(2) { it.second },
+                test(3) { it.third },
+                test(4) { it.fourth },
+                test(5) { it.fifth },
+                test(6) { it.sixth },
+                test(7) { it.seventh },
+                test(8) { it.octave },
+            )
         }
     }
 
-    context("Minor") {
-        withData(nameFn = { "$it.expectedSize" }, nonPerfectTestCases) {
-            val interval = Interval.minor.let(it.initialize)
+    @ParameterizedTest
+    @MethodSource("nonPerfectTestCases")
+    fun `Can instantiate major intervals`(testCase: TestCase<NonPerfectIntervalBuilder>) {
+        val interval = Interval.major.let(testCase.initialize)
 
-            interval.size shouldBe it.expectedSize
-            interval.offset shouldBe -1
-        }
+        assertThat(interval.size).isEqualTo(testCase.expectedSize)
+        assertThat(interval.offset).isEqualTo(0)
     }
 
-    context("Augmented") {
-        withData(nameFn = { "$it.expectedSize" }, intervalTestCases) {
-            val interval = Interval.augmented.let(it.initialize)
+    @ParameterizedTest
+    @MethodSource("nonPerfectTestCases")
+    fun `Can instantiate minor intervals`(testCase: TestCase<NonPerfectIntervalBuilder>) {
+        val interval = Interval.minor.let(testCase.initialize)
 
-            interval.size shouldBe it.expectedSize
-            interval.offset shouldBe 1
-        }
+        assertThat(interval.size).isEqualTo(testCase.expectedSize)
+        assertThat(interval.offset).isEqualTo(-1)
     }
 
-    context("Diminished") {
-        withData(nameFn = { "$it.expectedSize" }, nonPerfectTestCases) {
-            val interval = Interval.diminished.let(it.initialize)
+    @ParameterizedTest
+    @MethodSource("intervalTestCases")
+    fun `Can instantiate augmented intervals`(testCase: TestCase<IntervalBuilder>) {
+        val interval = Interval.augmented.let(testCase.initialize)
 
-            interval.size shouldBe it.expectedSize
-            interval.offset shouldBe -2
-        }
-
-        withData(nameFn = { "$it.expectedSize" }, perfectTestCases) {
-            val interval = Interval.diminished.let(it.initialize)
-
-            interval.size shouldBe it.expectedSize
-            interval.offset shouldBe -1
-        }
+        assertThat(interval.size).isEqualTo(testCase.expectedSize)
+        assertThat(interval.offset).isEqualTo(1)
     }
 
-    context("Perfect") {
-        withData(nameFn = { "$it.expectedSize" }, perfectTestCases) {
-            val interval = Interval.perfect.let(it.initialize)
+    @ParameterizedTest
+    @MethodSource("nonPerfectTestCases")
+    fun `Can instantiation non-perfect diminished intervals`(testCase: TestCase<NonPerfectIntervalBuilder>) {
+        val interval = Interval.diminished.let(testCase.initialize)
 
-            interval.size shouldBe it.expectedSize
-            interval.offset shouldBe 0
-        }
+        assertThat(interval.size).isEqualTo(testCase.expectedSize)
+        assertThat(interval.offset).isEqualTo(-2)
     }
 
-    context("Compound") {
-        withData(nameFn = { "Augmented ${it.expectedSize}" }, intervalTestCases) {
-            val interval = Interval.compound.augmented.let(it.initialize)
+    @ParameterizedTest
+    @MethodSource("perfectTestCases")
+    fun `Can instantiation perfect diminished intervals`(testCase: TestCase<PerfectIntervalBuilder>) {
+        val interval = Interval.diminished.let(testCase.initialize)
 
-            interval.size shouldBe it.expectedSize + 7
-            interval.offset shouldBe 1
-        }
+        assertThat(interval.size).isEqualTo(testCase.expectedSize)
+        assertThat(interval.offset).isEqualTo(-1)
     }
 
-    test("Equality") {
+    @ParameterizedTest
+    @MethodSource("perfectTestCases")
+    fun `Can instantiate perfect intervals`(testCase: TestCase<PerfectIntervalBuilder>) {
+        val interval = Interval.perfect.let(testCase.initialize)
+
+        assertThat(interval.size).isEqualTo(testCase.expectedSize)
+        assertThat(interval.offset).isEqualTo(0)
+    }
+
+    @ParameterizedTest
+    @MethodSource("intervalTestCases")
+    fun `Can instantiate compound intervals`(testCase: TestCase<IntervalBuilder>) {
+        val interval = Interval.compound.augmented.let(testCase.initialize)
+
+        assertThat(interval.size).isEqualTo(testCase.expectedSize + 7)
+        assertThat(interval.offset).isEqualTo(1)
+    }
+
+    @Test
+    fun `Equality works`() {
         val getInterval = { Interval.compound.minor.third }
 
         val first = getInterval()
         val second = getInterval()
 
-        first shouldBe second
+        assertThat(first).isEqualTo(second)
     }
-})
+}
