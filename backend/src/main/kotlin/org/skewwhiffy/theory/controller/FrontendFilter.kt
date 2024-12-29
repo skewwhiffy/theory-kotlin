@@ -17,18 +17,19 @@ class FrontendFilter(
         response: ServletResponse?,
         chain: FilterChain
     ) {
-        val req = request as HttpServletRequest
-        val requestURI = req.requestURI
-        if (requestURI.startsWith("/api")) {
-            chain.doFilter(request, response)
-            return
-        }
-        val resourcePath = listOf("public", requestURI).joinToString("/") { it.trim('/') }
-        val resource = resourceLoader.getResource("classpath:$resourcePath")
-        if (resource.exists() && resource.isFile) {
-            chain.doFilter(request, response)
-        } else {
-            request.getRequestDispatcher("/").forward(request, response)
-        }
+        chain.doFilter(request, response)
+//        val req = request as HttpServletRequest
+//        val requestURI = req.requestURI
+//        if (requestURI.startsWith("/api")) {
+//            chain.doFilter(request, response)
+//            return
+//        }
+//        val resourcePath = listOf("public", requestURI).joinToString("/") { it.trim('/') }
+//        val resource = resourceLoader.getResource("classpath:$resourcePath")
+//        if (resource.exists() && resource.isFile) {
+//            chain.doFilter(request, response)
+//        } else {
+//            request.getRequestDispatcher("/").forward(request, response)
+//        }
     }
 }
