@@ -8,6 +8,7 @@
     "build:frontend": "./build.frontend.sh",
     "clean": "rm -rf ./node_modules && rm -rf ./web/node_modules && cd backend && mvn clean",
     "start:frontend": "cd web && yarn start",
+    "start:backend": "cd backend && mvn spring-boot:run",
     "test:backend": "cd backend && mvn clean test"
   },
   "repository": "git@github.com:skewwhiffy/theory-kotlin.git",
