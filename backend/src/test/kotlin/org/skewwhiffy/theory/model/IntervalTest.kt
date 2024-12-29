@@ -1,12 +1,12 @@
-package org.skewwhiffy.theory
+package org.skewwhiffy.theory.model
 
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.datatest.withData
 import io.kotest.matchers.shouldBe
-import org.skewwhiffy.theory.org.skewwhiffy.theory.Interval
-import org.skewwhiffy.theory.org.skewwhiffy.theory.IntervalBuilder
-import org.skewwhiffy.theory.org.skewwhiffy.theory.NonPerfectIntervalBuilder
-import org.skewwhiffy.theory.org.skewwhiffy.theory.PerfectIntervalBuilder
+import org.skewwhiffy.theory.org.skewwhiffy.theory.model.Interval
+import org.skewwhiffy.theory.org.skewwhiffy.theory.model.IntervalBuilder
+import org.skewwhiffy.theory.org.skewwhiffy.theory.model.NonPerfectIntervalBuilder
+import org.skewwhiffy.theory.org.skewwhiffy.theory.model.PerfectIntervalBuilder
 
 private class TestCase<T>(
     val initialize: (builder: T) -> Interval,

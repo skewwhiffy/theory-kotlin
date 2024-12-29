@@ -1,9 +1,9 @@
-package org.skewwhiffy.theory
+package org.skewwhiffy.theory.model
 
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.shouldBe
-import org.skewwhiffy.theory.org.skewwhiffy.theory.Interval
-import org.skewwhiffy.theory.org.skewwhiffy.theory.Note
+import org.skewwhiffy.theory.org.skewwhiffy.theory.model.Interval
+import org.skewwhiffy.theory.org.skewwhiffy.theory.model.Note
 
 class PitchTest : StringSpec({
     "Can add major interval" {

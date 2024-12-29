@@ -1,4 +1,4 @@
-package org.skewwhiffy.theory.org.skewwhiffy.theory
+package org.skewwhiffy.theory.org.skewwhiffy.theory.model
 
 data class Interval(internal val size: Int, internal val offset: Int) {
     constructor(size: Int) : this(size, 0)
