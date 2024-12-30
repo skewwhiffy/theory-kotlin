@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da39dd6c-882f-4f56-8aa1-06cb2bbc8997" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/skewwhiffy/theory/configuration/OpenApiConfigurationTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/skewwhiffy/theory/configuration/OpenApiConfigurationTest.kt" afterDir="false" />
-    </list>
+    <list default="true" id="da39dd6c-882f-4f56-8aa1-06cb2bbc8997" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -169,7 +166,7 @@
       <option name="presentableId" value="Default" />
       <updated>1735477217124</updated>
       <workItem from="1735477218842" duration="2592000" />
-      <workItem from="1735547989138" duration="1067000" />
+      <workItem from="1735547989138" duration="1237000" />
     </task>
     <servers />
   </component>
