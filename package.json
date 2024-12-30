@@ -3,15 +3,20 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "yarn build:frontend && yarn build:backend",
-    "build:backend": "./build.backend.sh",
-    "build:frontend": "./build.frontend.sh",
+    "build": "yarn test:backend && yarn generate:openapi-client && yarn build:frontend && yarn copy:frontend-to-backend && yarn build:backend",
+    "build:backend": "cd backend && mvn clean package -DskipTests",
+    "build:frontend": "cd web && yarn && yarn build",
     "clean": "rm -rf ./node_modules && rm -rf ./web/node_modules && cd backend && mvn clean",
+    "copy:frontend-to-backend": "./copy-frontend-to-backend.sh",
+    "generate:openapi-client": "rm -rf ./web/src/api && openapi-generator-cli generate -i ./backend/api-docs.yaml -g typescript-axios -o ./web/src/api",
     "start:frontend": "cd web && yarn start",
     "start:backend": "cd backend && mvn spring-boot:run",
     "test:backend": "cd backend && mvn clean test"
   },
   "repository": "git@github.com:skewwhiffy/theory-kotlin.git",
   "author": "Kenny Hung (he) <kennysubs+github@outlook.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@openapitools/openapi-generator-cli": "^2.15.3"
+  }
 }
