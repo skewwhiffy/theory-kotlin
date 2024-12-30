@@ -23,10 +23,13 @@ class FrontendFilter(
         chain: FilterChain
     ) {
         val req = request as HttpServletRequest
-        val requestURI = req.requestURI
-        val resourcePath = listOf("public", requestURI).joinToString("/") { it.trim('/') }
+        val requestURI = req.requestURI.trim('/')
+        val resourcePath = listOf("public", requestURI).joinToString("/")
         val resource = resourceLoader.getResource("classpath:$resourcePath")
-        if (allowedResources.any { requestURI.contains(it) } || (resource.exists() && resource.isFile)) {
+        val isApiRequest = requestURI.startsWith("api")
+        val isAllowedResource = allowedResources.any { requestURI.contains(it) }
+        val staticFileExists = resource.exists() && resource.isFile
+        if (isApiRequest || isAllowedResource || staticFileExists) {
             chain.doFilter(request, response)
         } else {
             request.getRequestDispatcher("/").forward(request, response)

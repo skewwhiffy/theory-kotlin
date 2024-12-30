@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da39dd6c-882f-4f56-8aa1-06cb2bbc8997" name="Changes" comment="" />
+    <list default="true" id="da39dd6c-882f-4f56-8aa1-06cb2bbc8997" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/org/skewwhiffy/theory/configuration/OpenApiConfigurationTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/skewwhiffy/theory/controller/PingControllerTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/skewwhiffy/theory/controller/PingControllerTest.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +18,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -33,6 +38,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JUnit.PingControllerTest.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -41,6 +47,8 @@
     "RunOnceActivity.git.unshallow": "true",
     "Spring Boot.Main.executor": "Debug",
     "Spring Boot.Run application.executor": "Run",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "openapi",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -55,11 +63,58 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="org.skewwhiffy.theory.configuration" />
     </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.skewwhiffy.theory.configuration" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.TEST ALL">
+    <configuration name="PingControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="theory" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.skewwhiffy.theory.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.skewwhiffy.theory.controller" />
+      <option name="MAIN_CLASS_NAME" value="org.skewwhiffy.theory.controller.PingControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PingControllerTest.Returns version number" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="theory" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.skewwhiffy.theory.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.skewwhiffy.theory.controller" />
+      <option name="MAIN_CLASS_NAME" value="org.skewwhiffy.theory.controller.PingControllerTest" />
+      <option name="METHOD_NAME" value="Returns version number" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TEST ALL" type="JUnit" factoryName="JUnit">
+      <module name="theory" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -82,6 +137,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JUnit.TEST ALL" />
+      <item itemvalue="JUnit.PingControllerTest.Returns version number" />
+      <item itemvalue="JUnit.PingControllerTest" />
+      <item itemvalue="Spring Boot.Run application" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.PingControllerTest.Returns version number" />
+        <item itemvalue="JUnit.PingControllerTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -100,7 +167,7 @@
       <option name="presentableId" value="Default" />
       <updated>1735477217124</updated>
       <workItem from="1735477218842" duration="2592000" />
-      <workItem from="1735547989138" duration="52000" />
+      <workItem from="1735547989138" duration="445000" />
     </task>
     <servers />
   </component>
