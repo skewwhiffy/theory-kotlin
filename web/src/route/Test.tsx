@@ -1,13 +1,14 @@
 import {useState} from "react";
-import axios from "axios";
+import {PingControllerApi} from "../api";
 
+const pingController = new PingControllerApi(undefined, "")
 export const Test = () => {
   const [version, setVersion] = useState<String | unknown>()
 
   const getVersion = async () => {
     try {
-      const response = await axios.get("/api/ping")
-      const {version} = await response.data
+      const response = await pingController.ping()
+      const {version} = response.data
       setVersion(version)
     } catch (error) {
       console.log(error)
