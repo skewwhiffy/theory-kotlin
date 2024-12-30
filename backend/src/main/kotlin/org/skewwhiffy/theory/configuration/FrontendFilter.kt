@@ -1,4 +1,4 @@
-package org.skewwhiffy.theory.org.skewwhiffy.theory.controller
+package org.skewwhiffy.theory.org.skewwhiffy.theory.configuration
 
 import jakarta.servlet.Filter
 import jakarta.servlet.FilterChain
