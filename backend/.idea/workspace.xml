@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da39dd6c-882f-4f56-8aa1-06cb2bbc8997" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/org/skewwhiffy/theory/configuration/OpenApiConfigurationTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/skewwhiffy/theory/controller/PingControllerTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/skewwhiffy/theory/controller/PingControllerTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/skewwhiffy/theory/configuration/OpenApiConfigurationTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/skewwhiffy/theory/configuration/OpenApiConfigurationTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +37,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JUnit.All in theory.executor": "Run",
+    "JUnit.PingControllerTest.Returns version number.executor": "Debug",
     "JUnit.PingControllerTest.executor": "Run",
+    "JUnit.TEST ALL.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -167,7 +169,7 @@
       <option name="presentableId" value="Default" />
       <updated>1735477217124</updated>
       <workItem from="1735477218842" duration="2592000" />
-      <workItem from="1735547989138" duration="445000" />
+      <workItem from="1735547989138" duration="1067000" />
     </task>
     <servers />
   </component>

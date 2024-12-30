@@ -1,4 +1,5 @@
 target/
+api-docs.yaml
 
 ### VS Code ###
 .vscode/
