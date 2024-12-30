@@ -26,11 +26,7 @@ class FrontendFilter(
         val requestURI = req.requestURI
         val resourcePath = listOf("public", requestURI).joinToString("/") { it.trim('/') }
         val resource = resourceLoader.getResource("classpath:$resourcePath")
-        if (allowedResources.any { requestURI.contains(it) }) {
-            chain.doFilter(request, response)
-            return
-        }
-        if (allowedResources.contains(requestURI.trim('/')) || (resource.exists() && resource.isFile)) {
+        if (allowedResources.any { requestURI.contains(it) } || (resource.exists() && resource.isFile)) {
             chain.doFilter(request, response)
         } else {
             request.getRequestDispatcher("/").forward(request, response)
