@@ -4,8 +4,8 @@
   "main": "index.js",
   "scripts": {
     "build": "yarn test:backend && yarn generate:openapi-client && yarn build:frontend && yarn copy:frontend-to-backend && yarn build:backend",
-    "build:backend": "cd backend && mvn clean package",
-    "build:frontend": "cd web && yarn build",
+    "build:backend": "cd backend && mvn clean package -DskipTests",
+    "build:frontend": "cd web && yarn && yarn build",
     "clean": "rm -rf ./node_modules && rm -rf ./web/node_modules && cd backend && mvn clean",
     "copy:frontend-to-backend": "./copy-frontend-to-backend.sh",
     "generate:openapi-client": "rm -rf ./web/src/api && openapi-generator-cli generate -i ./backend/api-docs.yaml -g typescript-axios -o ./web/src/api",
