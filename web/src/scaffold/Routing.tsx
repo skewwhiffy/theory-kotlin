@@ -1,11 +1,9 @@
 import {Route, Routes} from "react-router";
-import {Test} from "../route/Test";
-import {Home} from "../route/Home";
-import {NotFound} from "../route/NotFound";
+import {routes} from "./routes";
 
 export const Routing = () =>
   <Routes>
-    <Route path="/test" element={<Test/>}/>
-    <Route path="/" element={<Home/>}/>
-    <Route path="*" element={<NotFound/>}/>
+    {routes.map(({path, element}) =>
+      <Route key={path} path={path} element={element}/>
+    )}
   </Routes>
