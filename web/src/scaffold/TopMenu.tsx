@@ -3,7 +3,6 @@ import React from "react";
 import {routes} from "./routes";
 
 const Links = () => {
-  console.log(routes)
   return <div className="flex-col flex justify-end">
     <div className="flex gap-2">
       {routes
