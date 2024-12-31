@@ -9,6 +9,7 @@
     "clean": "rm -rf ./node_modules && rm -rf ./web/node_modules && cd backend && mvn clean",
     "copy:frontend-to-backend": "./copy-frontend-to-backend.sh",
     "generate:openapi-client": "rm -rf ./web/src/api && openapi-generator-cli generate -i ./backend/api-docs.yaml -g typescript-axios -o ./web/src/api",
+    "lint:frontend": "cd web && yarn eslint",
     "start:frontend": "cd web && yarn start",
     "start:backend": "cd backend && mvn spring-boot:run",
     "test:backend": "cd backend && mvn clean test"

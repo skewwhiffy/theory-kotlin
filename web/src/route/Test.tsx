@@ -3,7 +3,7 @@ import {PingControllerApi} from "../api";
 
 const pingController = new PingControllerApi(undefined, "")
 export const Test = () => {
-  const [version, setVersion] = useState<String | unknown>()
+  const [version, setVersion] = useState<string | unknown>()
 
   const getVersion = async () => {
     try {
