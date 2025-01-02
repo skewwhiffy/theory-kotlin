@@ -1,8 +1,6 @@
 import {Vex} from "vexflow";
 import {useEffect, useId, useState} from "react";
 
-const {Factory} = Vex.Flow;
-
 export const TestNotation = () => {
   const elementId = useId()
   const [rendered, setRendered] = useState(false)
@@ -17,22 +15,16 @@ export const TestNotation = () => {
     }
     div.textContent = null
     setRendered(true)
-    const vf = new Factory({
-      renderer: {elementId, width: 500, height: 200},
-    });
-
+    const vf = new Vex.Flow.Factory({renderer: {
+      elementId: elementId, height: 0, width: 0
+    }});
     const score = vf.EasyScore();
     const system = vf.System();
+    system.addStave({
+      voices: [score.voice(
+        score.notes('C#5/q, B4, A4, G#4 '))]
+    }).addClef('treble').addTimeSignature('4/4');
 
-    system
-      .addStave({
-        voices: [
-          score.voice(score.notes('C#5/q, B4, A4, G#4', {stem: 'up'})),
-          score.voice(score.notes('C#4/h, C#4', {stem: 'down'})),
-        ],
-      })
-      .addClef('treble')
-      .addTimeSignature('4/4');
     vf.draw();
   })
 
