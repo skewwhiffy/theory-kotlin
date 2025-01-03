@@ -1,25 +1,15 @@
-import {useState} from "react";
-import {PingControllerApi} from "../api";
+import {AbcBox} from "../notation/AbcBox";
 
-const pingController = new PingControllerApi(undefined, "")
 export const Test = () => {
-  const [version, setVersion] = useState<string | unknown>()
-
-  const getVersion = async () => {
-    try {
-      const response = await pingController.ping()
-      const {version} = response.data
-      setVersion(version)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
   return <>
-    <h1>Test sandbox</h1>
-    <p>
-      <>Version: {version ?? 'Unknown'}</>
-    </p>
-    <button onClick={() => getVersion()}>Get version</button>
+    <AbcBox abc={`
+  X:1
+  K:E
+  DD AA|BBA2|
+  `} width={300}/>
+    <p className="w-1/2">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+      invidunt ut labore et
+      dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+      clita kasd gubergren, no sea takimata</p>
   </>
 }
