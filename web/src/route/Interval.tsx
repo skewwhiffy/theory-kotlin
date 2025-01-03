@@ -1,1 +1,0 @@
-export const Interval = () => <p>Interval</p>

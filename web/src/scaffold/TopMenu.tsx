@@ -1,15 +1,17 @@
 import {Link} from "react-router";
 import React from "react";
-import {routes} from "./routes";
+import {routes, PropsWithRoute} from "./routes";
 import {Version} from "./Version";
+
+const SingleLink = ({route: {path, link, menuText}}: PropsWithRoute) => {
+  return <>{menuText && <Link key={path} to={link ?? path}>{menuText.toUpperCase()}</Link>}</>
+}
 
 const Links = () => {
   return <div className="flex justify-between w-full">
     <div className="flex-col flex justify-end">
       <div className="flex gap-2">
-        {routes
-          .filter(it => it.menuText)
-          .map(({path, menuText}) => <Link key={path} to={path}>{menuText?.toUpperCase()}</Link>)}
+        {routes.map(it => <SingleLink key={it.path} route={it}/>)}
       </div>
     </div>
     <Version/>

@@ -1,9 +1,21 @@
 import {Test} from "../route/Test";
 import {Home} from "../route/Home";
 import {NotFound} from "../route/NotFound";
-import {Interval} from "../route/Interval";
+import {Clef} from "../route/Clef";
+import {JSX} from "react";
 
-export const routes = [{
+export type PropsWithRoute = {
+  route: Route
+}
+
+type Route = {
+  menuText?: string
+  path: string
+  element: JSX.Element
+  link?: string
+}
+
+export const routes: Route[] = [{
   path: "/test",
   element: <Test/>
 }, {
@@ -11,9 +23,10 @@ export const routes = [{
   element: <Home/>,
   menuText: "Home"
 }, {
-  path: "/interval",
-  element: <Interval/>,
-  menuText: "Interval"
+  path: "/clef/:type",
+  link: "/clef/notes",
+  element: <Clef/>,
+  menuText: "Clef"
 }, {
   path: "*",
   element: <NotFound/>
